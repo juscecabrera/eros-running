@@ -1,6 +1,8 @@
 import alexerPro from '@/lib/fonts';
 import GlassButton from './GlassButton';
-
+import image1 from './about1.jpeg';
+import image2 from './about1.jpeg';
+import image3 from './about1.jpeg';
 
 export const AboutPage = () => {
     // El h-[100px] es para eliminar el margen entre el h2 y el p artificial, no se como sacarlo
@@ -12,6 +14,9 @@ export const AboutPage = () => {
                     <p className='text-[20px]'>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in consequat turpis. Sed convallis, justo ut pellentesque pellentesque, dolor tortor ultricies est, ut efficitur odio nunc vel massa. Suspendisse quis posuere enim. 
                     </p>
+                </div>
+                <div className='col-span-2 col-start-1'>
+                    <GlassButton text={18}/>
                 </div>
             </div>
             

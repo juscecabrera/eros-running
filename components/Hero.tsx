@@ -16,7 +16,7 @@ export const HeroPage = () => {
                 />
                 
                 <div className='col-start-6 col-end-8'>
-                    <GlassButton /> 
+                    <GlassButton text={24} /> 
                 </div>
 
             </div>

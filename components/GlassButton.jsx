@@ -3,9 +3,11 @@
 import alexerPro from '@/lib/fonts';
 import React, { useState, useRef } from 'react';
 
-const GlassButton2 = () => {
+const GlassButton = (text) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const buttonRef = useRef(null);
+
+  let textSize = Number(text)
 
   const handleMouseMove = (e) => {
     if (buttonRef.current) {
@@ -42,7 +44,7 @@ const GlassButton2 = () => {
         ${alexerPro.className}
       `}
     >
-      <span className="relative z-10 text-[24px] font-light">Únete</span>
+      <span className={`relative z-10 text-[${typeof(textSize) === Number ? textSize : 18}px] font-light`}>Únete</span>
       <div
         className="
           absolute
@@ -75,4 +77,4 @@ const GlassButton2 = () => {
   );
 };
 
-export default GlassButton2;
+export default GlassButton;
