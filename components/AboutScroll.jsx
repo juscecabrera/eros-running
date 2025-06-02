@@ -75,7 +75,7 @@ export const AboutScroll = () => {
       {/* Right Column (Scrolling, reversed direction) */}
       <motion.div
         className="col-span-3 col-start-10 row-start-1 flex flex-col py-4 gap-3"
-        initial={{ y: 0 }}
+        // initial={{ y: 0 }}
         style={{ y: yRight }} // Apply reversed scroll direction
       >
         <Image
