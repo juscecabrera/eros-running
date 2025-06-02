@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import alexerPro from '@/lib/fonts';
 import GlassButton from './GlassButton';
 import image1 from '../assets/images/about1.jpeg';
@@ -8,10 +8,19 @@ import image2 from '../assets/images/about2.jpeg';
 import image3 from '../assets/images/about3.jpeg';
 import image4 from '../assets/images/about4.jpeg';
 import Image from 'next/image';
+import { useRef } from 'react';
 
 export const AboutScroll = () => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end end'],
+  });
+  const yLeft = useTransform(scrollYProgress, [1, 0], [0, 0]);
+  const yRight = useTransform(scrollYProgress, [0, 0.5, 1], ['-50%', '0%', '50%']);
+
   return (
-    <div className={`font-light text-white bg-black min-h-screen grid grid-cols-12 gap-[24px] px-[64px] grid-rows-1 w-full ${alexerPro.className}`}>
+    <div ref={containerRef} className={`font-light text-white bg-black min-h-screen grid grid-cols-12 gap-[24px] px-[64px] grid-rows-1 w-full overflow-clip ${alexerPro.className}`}>
       {/* Left Content (Sticky) */}
       <div className="col-span-6 col-start-1 row-start-1 grid grid-cols-6 gap-[24px] sticky top-0 h-screen">
         <div className="col-span-5 col-start-1 p-0 flex flex-col justify-center">
@@ -27,38 +36,68 @@ export const AboutScroll = () => {
 
       {/* Left Column (Scrolling) */}
       <motion.div
-        className="col-span-3 col-start-7 row-start-1 flex flex-col"
+        className="col-span-3 col-start-7 row-start-1 flex flex-col py-4 gap-3"
         initial={{ y: 0 }}
         animate={{ y: 0 }}
         transition={{ type: 'spring', stiffness: 100 }}
+        style={{ y: yLeft }}
       >
-        <Image 
-            src={image1}
-            alt='image 1'
+        <Image
+          src={image1}
+          alt="image 1"
+          className="h-[477px] rounded-3xl drop-shadow-white object-cover w-full"
+          height={477}
         />
-        <Image 
-            src={image2}
-            alt='image 2'
+        <Image
+          src={image2}
+          alt="image 2"
+          className="h-[477px] rounded-3xl drop-shadow-white object-cover w-full"
+          height={477}
         />
-        <Image 
-            src={image3}
-            alt='image 3'
+        <Image
+          src={image3}
+          alt="image 3"
+          className="h-[477px] rounded-3xl drop-shadow-white object-cover w-full"
+          height={477}
         />
-        <Image 
-            src={image4}
-            alt='image 4'
+        <Image
+          src={image4}
+          alt="image 4"
+          className="h-[477px] rounded-3xl drop-shadow-white object-cover w-full"
+          height={477}
         />
-        {/* <div className="bg-gray-500 h-[600px] w-full text-8xl flex items-center justify-center">
-        </div>
-        <div className="bg-red-500 h-[600px] w-full text-8xl flex items-center justify-center">2</div>
-        <div className="bg-gray-500 h-[600px] w-full text-8xl flex items-center justify-center">3</div> */}
       </motion.div>
 
-      {/* Right Column (Sticky) */}
-      <div className="col-span-3 col-start-10 row-start-1 flex flex-col sticky top-0 h-screen">
-        <div className="bg-gray-500 h-[600px] w-full text-8xl flex items-center justify-center">3</div>
-        <div className="bg-red-500 h-[600px] w-full text-8xl flex items-center justify-center">4</div>
-      </div>
+      {/* Right Column (Scrolling, reversed direction) */}
+      <motion.div
+        className="col-span-3 col-start-10 row-start-1 flex flex-col py-4 gap-3"
+        style={{ y: yRight }} // Apply reversed scroll direction
+      >
+        <Image
+          src={image1}
+          alt="image 1"
+          className="h-[477px] rounded-3xl drop-shadow-white object-cover w-full"
+          height={477}
+        />
+        <Image
+          src={image2}
+          alt="image 2"
+          className="h-[477px] rounded-3xl drop-shadow-white object-cover w-full"
+          height={477}
+        />
+        <Image
+          src={image3}
+          alt="image 3"
+          className="h-[477px] rounded-3xl drop-shadow-white object-cover w-full"
+          height={477}
+        />
+        <Image
+          src={image4}
+          alt="image 4"
+          className="h-[477px] rounded-3xl drop-shadow-white object-cover w-full"
+          height={477}
+        />
+      </motion.div>
     </div>
   );
 };
