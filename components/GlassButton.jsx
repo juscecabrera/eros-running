@@ -3,7 +3,7 @@
 import alexerPro from '@/lib/fonts';
 import React, { useState, useRef } from 'react';
 
-const GlassButton = (text) => {
+const GlassButton = ({ text, black }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const buttonRef = useRef(null);
 
@@ -26,16 +26,19 @@ const GlassButton = (text) => {
       className={`
         w-full
         h-[62px]
-        text-white
         font-semibold
         rounded-[4000px]
-        bg-white/10
         backdrop-blur-md
         border-[0.1px]
         border-gradient-to-r
-        border-white/20
+        ${black ? "text-black" : "text-white"}
+        ${black ? "bg-white/50" : "bg-white/10"}
+        ${black ? "border-black/20" : "border-white/20"}
+        ${black ? "hover:border-black/90" : "hover:border-white/90"}
+        ${black ? "hover:bg-white/80" : "hover:bg-white/20"}
+        hover:duration-700
         shadow-lg
-        hover:bg-white/20
+        hover:cursor-pointer
         transition-all
         duration-300
         ease-in-out
@@ -44,7 +47,7 @@ const GlassButton = (text) => {
         ${alexerPro.className}
       `}
     >
-      <span className={`relative z-10 text-[${typeof(textSize) === Number ? textSize : 18}px] font-light`}>Únete</span>
+      <span className={`relative z-10 text-[${typeof(textSize) === Number ? textSize : 18}px]  font-light`}>Únete</span>
       <div
         className="
           absolute
@@ -59,7 +62,7 @@ const GlassButton = (text) => {
           duration-300
         "
         style={{
-          background: `radial-gradient(circle 100px at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,255,255,0.3), transparent 60%)`,
+          background: `radial-gradient(circle 100px at ${mousePosition.x}px ${mousePosition.y}px, ${black ? "rgba(0,0,0,0.05)" :  "rgba(255,255,255,0.3)"}, transparent 60%)`,
         }}
       ></div>
       <div

@@ -16,7 +16,7 @@ export const AboutPage = () => {
                     </p>
                 </div>
                 <div className='col-span-2 col-start-1'>
-                    <GlassButton text={18}/>
+                    <GlassButton text={18} black={false} />
                 </div>
             </div>
             
