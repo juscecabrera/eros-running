@@ -4,6 +4,7 @@ import { AboutScroll } from "@/components/AboutScroll"
 import { MissionPage } from '@/components/Mission'
 import { MissionPageScroll } from '@/components/MissionScrollHorizontal'
 import { Mission2 } from '@/components/Mission2'
+import CardScroll from '@/components/CardScrollTest'
 
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
     <AboutScroll />
     <MissionPageScroll />
     <Mission2 />    
+    <CardScroll />
 
   </>
   );
