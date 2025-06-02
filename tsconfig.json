@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/WindowSize.jsx", "lib/fonts.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/WindowSize.jsx", "lib/fonts.js", "components/GlassButton.jsx"],
   "exclude": ["node_modules"]
 }
