@@ -22,7 +22,7 @@ const GlassButton2 = () => {
       ref={buttonRef}
       onMouseMove={handleMouseMove}
       className={`
-        w-[246px]
+        w-full
         h-[62px]
         text-white
         font-semibold

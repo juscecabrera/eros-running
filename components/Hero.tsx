@@ -10,7 +10,6 @@ export const HeroPage = () => {
                 <Image 
                     src={ErosTextLogo}
                     alt="Eros Fit Logo"
-                    // className='w-[1312px] h-[370px] mt-[18px]'
                     className='col-start-1 col-end-13 mt-[18px]'
                     width={1312}
                     height={370}
@@ -18,8 +17,6 @@ export const HeroPage = () => {
                 
                 <div className='col-start-6 col-end-8'>
                     <GlassButton /> 
-                    {/* <ButtonComponent /> */}
-                    {/* <GlassButton2 /> */}
                 </div>
 
             </div>
